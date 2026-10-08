@@ -1,0 +1,40 @@
+Total Sales = SUM ( Orders[Sales] )
+
+Total Profit = SUM ( Orders[Profit] )
+
+Profit Margin % = DIVIDE ( [Total Profit], [Total Sales] )
+
+Total Orders = DISTINCTCOUNT ( Orders[Order ID] )
+
+Total Customers = DISTINCTCOUNT ( Orders[Customer ID] )
+
+Units Sold = SUM ( Orders[Quantity] )
+
+Avg Order Value = DIVIDE ( [Total Sales], [Total Orders] )
+
+Sales LY = CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+Profit LY = CALCULATE ( [Total Profit], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+YoY Sales Growth % = DIVIDE ( [Total Sales] - [Sales LY], [Sales LY] )
+
+YoY Profit Growth % = DIVIDE ( [Total Profit] - [Profit LY], [Profit LY] )
+
+Sales YTD = TOTALYTD ( [Total Sales], 'Date'[Date] )
+
+Top 10 Sales =
+SUMX (
+    TOPN ( 10, VALUES ( Products[Product Name] ), [Total Sales] ),
+    [Total Sales]
+)
+
+Top 10 Share % = DIVIDE ( [Top 10 Sales], [Total Sales] )
+
+Orders per Customer = DIVIDE ( [Total Orders], [Total Customers] )
+
+Repeat Customers =
+COUNTROWS (
+    FILTER ( VALUES ( Orders[Customer ID] ), CALCULATE ( [Total Orders] ) > 1 )
+)
+
+Repeat Customer % = DIVIDE ( [Repeat Customers], [Total Customers] )
