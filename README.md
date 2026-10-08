@@ -2,9 +2,9 @@
 
 I built this Power BI project to practise the full workflow: cleaning data in Power Query, setting up a star schema, and writing DAX measures to answer basic sales questions. It looks at sales, profit and customers across 4 regions and 3 product categories.
 
-![Overview](screenshots/01_overview.png)
-![Products](screenshots/02_products.png)
-![Regions and customers](screenshots/03_regions_customers.png)
+![Overview](01_overview.png)
+![Products](02_products.png)
+![Regions and customers](03_regions_customers.png)
 
 Made with Power BI, Excel, Power Query and DAX.
 
